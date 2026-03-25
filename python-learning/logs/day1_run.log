@@ -1,0 +1,22 @@
+=== Basic Demo ===
+name=Maple, score=88, active=True
+skills=['python', 'fastapi', 'rag']
+profile={'name': 'Maple', 'score': 88, 'active': True}
+=== Loop Demo ===
+1 is odd
+2 is even
+3 is odd
+4 is even
+5 is odd
+
+=== Exercise 1: Leap Year ===
+1900: False
+2000: True
+2024: True
+2025: False
+
+=== Exercise 2: Char Frequency ===
+text=fastapi, freq={'f': 1, 'a': 2, 's': 1, 't': 1, 'p': 1, 'i': 1}
+
+=== Exercise 3: Second Largest ===
+nums=[7, 2, 9, 9, 5, 3], second_largest=7
