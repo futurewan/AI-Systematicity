@@ -1,0 +1,16 @@
+=== Exception Demo ===
+10/2 -> 5.0
+5/0 -> divide by zero
+a/1 -> type error
+
+=== Comprehension Demo ===
+squares=[1, 4, 9, 16, 25, 36]
+evens=[2, 4, 6]
+labels=['odd', 'even', 'odd', 'even', 'odd', 'even']
+square_map={1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+=== Function Tests ===
+safe_divide: 5.0 Error: divide by zero
+normalize_scores: [0.0, 0.5, 1.0] [0.0, 0.0, 0.0]
+top_k: [9, 7] [1]
+char_frequency: {'f': 1, 'a': 2, 's': 1, 't': 1, 'p': 1, 'i': 1}
