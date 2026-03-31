@@ -32,7 +32,7 @@
 | --- | --- | --- | --- | --- | --- |
 | Day 1 | Basics + 3 exercises | doing | `python-learning/day1/day1_basics.py` | `python-learning/day1/day1_notes.md` | `python-learning/logs/day1_run.log` |
 | Day 2 | Basics wrap-up | todo | - | - | - |
-| Day 3 | OOP + modules | todo | - | - | - |
+| Day 3 | OOP + modules | doing | `python-learning/day3/day3_models.py` + `day3_exercises.py` | `python-learning/day3/day3_notes.md` | `python-learning/logs/day3_run.log` |
 | Day 4 | venv + pip + package layout | todo | - | - | - |
 | Day 5 | file + JSON | todo | - | - | - |
 | Day 6 | logging + regex | todo | - | - | - |

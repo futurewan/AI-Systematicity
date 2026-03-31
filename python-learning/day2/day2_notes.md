@@ -1,32 +1,32 @@
-# Day 2 Notes
+# 第 2 天笔记
 
-## Date
+## 日期
 - 2026-03-26
 
-## Today Plan (3-5 items)
-- [ ] Run `day2_exercises.py`
-- [ ] Explain exception flow: try/except/else/finally
-- [ ] Rewrite 2 loops using list comprehension
-- [ ] Add 1 edge case test per function
+## 今日计划 (3-5 项)
+- [ ] 运行 `day2_exercises.py`
+- [ ] 解释异常流程：try/except/else/finally
+- [ ] 使用列表推导式重写 2 个循环
+- [ ] 为每个函数添加 1 个边界情况测试
 
-## What I Learned
+## 我学到了什么
 - 
 - 
 - 
 
-## What Blocked Me
-- blocker:
-- how I handled it:
+## 什么阻碍了我
+- 阻碍：
+- 我如何处理：
 
-## Deliverables
-- code: `python-learning/day2/day2_exercises.py`
-- run log: `python-learning/logs/day2_run.log`
-- notes: `python-learning/day2/day2_notes.md`
+## 交付物
+- 代码：`python-learning/day2/day2_exercises.py`
+- 运行日志：`python-learning/logs/day2_run.log`
+- 笔记：`python-learning/day2/day2_notes.md`
 
-## Self-Check
-- [ ] Code runs
-- [ ] I can explain one edge case per function
-- [ ] I can compare JS try/catch vs Python try/except
+## 自我检查
+- [ ] 代码运行正常
+- [ ] 我能解释每个函数的一个边界情况
+- [ ] 我能比较 JS try/catch 与 Python try/except
 
-## Tomorrow First Task
+## 明天的首要任务
 - 

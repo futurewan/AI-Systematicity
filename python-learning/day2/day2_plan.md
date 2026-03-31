@@ -1,33 +1,33 @@
-# Day 2 Plan - Exceptions + List/Dict Comprehension + Function Practice
+# 第 2 天计划 - 异常处理 + 列表/字典推导式 + 函数练习
 
-## Today's Goal
-- Build confidence with Python exception handling.
-- Write concise, readable list/dict comprehension.
-- Strengthen function thinking (input/output/edge cases).
+## 今日目标
+- 建立 Python 异常处理的信心
+- 编写简洁、可读性强的列表/字典推导式
+- 强化函数思维（输入/输出/边界情况）
 
-## Tasks (Must Do)
-1. Exception basics
-- Learn `try/except/else/finally` with 3 mini cases.
-- Handle `ValueError` and `ZeroDivisionError`.
+## 任务（必须完成）
+1. 异常基础
+- 通过 3 个小案例学习 `try/except/else/finally`
+- 处理 `ValueError` 和 `ZeroDivisionError`
 
-2. List comprehension
-- Convert 3 loop snippets into list comprehension.
-- Include one conditional expression example.
+2. 列表推导式
+- 将 3 个循环代码片段转换为列表推导式
+- 包含一个条件表达式示例
 
-3. Dict comprehension
-- Build `{x: x*x}` for 1..10.
-- Build char frequency map from a string.
+3. 字典推导式
+- 为 1..10 构建 `{x: x*x}`
+- 从字符串构建字符频率映射
 
-4. Function exercises
-- `safe_divide(a, b)` -> return result or error message.
-- `normalize_scores(scores)` -> min-max normalize to [0, 1].
-- `top_k(nums, k)` -> return top k unique numbers.
+4. 函数练习
+- `safe_divide(a, b)` -> 返回结果或错误信息
+- `normalize_scores(scores)` -> 最小-最大归一化到 [0, 1]
+- `top_k(nums, k)` -> 返回前 k 个唯一数字
 
-## Acceptance Criteria
-- Code runs with no crash.
-- Each function has at least 2 test inputs.
-- You can explain one edge case per function.
-- `day2_notes.md` + `day2_run.log` completed.
+## 验收标准
+- 代码运行无崩溃
+- 每个函数至少有 2 个测试输入
+- 你能解释每个函数的一个边界情况
+- `day2_notes.md` + `day2_run.log` 已完成
 
-## Stretch Goal (Optional)
-- Add simple unit tests in `test_day2.py`.
+## 延伸目标（可选）
+- 在 `test_day2.py` 中添加简单的单元测试
