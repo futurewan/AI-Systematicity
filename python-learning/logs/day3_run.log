@@ -1,65 +1,14 @@
-============================================================
-Exercise 1: User Class Basics
-============================================================
-str:  User(name=Alice, role=viewer)
-str:  User(name=Bob, role=editor)
-repr: User('Alice', 'alice@gmail.com', 'viewer')
-repr: User('Bob', 'bob@company.cn', 'editor')
-Alice's email domain: gmail.com
-Bob's email domain:   company.cn
+=== 类与继承演示 ===
+你好，我是Maple，角色是user，年龄26岁。
+你好，我是Alice，角色是admin，年龄30岁。 我拥有权限：read, write, deploy。
 
---- Promotion ---
-Before: User(name=Alice, role=viewer)
-After 1st promote: User(name=Alice, role=editor)
-After 2nd promote: User(name=Alice, role=admin)
-Expected error: User 'Alice' is already an admin, cannot promote further.
+=== 工具函数演示 ===
+age=26, valid=True
+age=-1, valid=False
+age=130, valid=False
 
---- Invalid role ---
-Expected error: Invalid role: superadmin. Must be one of ['viewer', 'editor', 'admin']
-
-============================================================
-Exercise 2: Shapes - Inheritance & Polymorphism
-============================================================
-Circle: area = 78.54
-Circle: area = 3.14
-Rectangle: area = 12.00
-Rectangle: area = 20.00
-
---- Sorted by area (ascending) ---
-  Circle(radius=1) -> area=3.14
-  Rectangle(width=3, height=4) -> area=12.00
-  Rectangle(width=10, height=2) -> area=20.00
-  Circle(radius=5) -> area=78.54
-
---- Base class cannot compute area ---
-Expected error: Subclass must implement area()
-
-============================================================
-Exercise 3: Team - Composition Pattern
-============================================================
-Team: Team(AI Backend, members=[Alice, Bob, Charlie, Diana])
-Team size: 4
-
---- Find by role ---
-Viewers (2): ['User(name=Charlie, role=viewer)', 'User(name=Diana, role=viewer)']
-Admins (1): ['User(name=Alice, role=admin)']
-
---- Duplicate email rejection ---
-Expected error: User with email 'alice@company.com' already in team 'AI Backend'.
-
-============================================================
-Exercise 4: Module Import
-============================================================
-User class imported from: day3_models
-Circle class imported from: day3_models
-
-Circle MRO: ['Circle', 'Shape', 'object']
-Rectangle MRO: ['Rectangle', 'Shape', 'object']
-
-isinstance(c, Circle): True
-isinstance(c, Shape):  True
-issubclass(Circle, Shape): True
-
-============================================================
-All Day 3 exercises completed!
-============================================================
+=== 边界测试 ===
+姓名空格处理: Bob
+年龄边界(0): True
+年龄边界(120): True
+年龄越界(121): False

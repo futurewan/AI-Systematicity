@@ -5,15 +5,19 @@ It also works standalone for quick testing.
 
 Run standalone:
     python3 python-learning/day3/day3_models.py
+
+JS 开发者逐行对照版说明：
+- 目标：尽量让每个关键 Python 语句旁边都能看到 JS 心智映射。
+- 原则：只加注释，不改逻辑。
 """
 
-import math
+import math  # Python 标准数学库；JS 对照：内置 `Math` 对象（如 `Math.PI`）。
 
 
 # ---------------------------------------------------------------------------
 # 1. User class - basics of __init__, __str__, __repr__, @property, methods
 # ---------------------------------------------------------------------------
-class User:
+class User:  # JS 对照：`class User { ... }`
     """Represents a system user with role-based promotion.
 
     Attributes:
@@ -22,156 +26,113 @@ class User:
         role:  one of 'viewer', 'editor', 'admin'
     """
 
-    # 定义角色升级路径（类变量，所有实例共享）
-    ROLE_LADDER = ["viewer", "editor", "admin"]
+    ROLE_LADDER = ["viewer", "editor", "admin"]  # JS 对照：`static ROLE_LADDER = [...]`
 
     def __init__(self, name: str, email: str, role: str = "viewer") -> None:
-        """初始化 User 实例。
-
-        Args:
-            name:  用户名
-            email: 邮箱地址
-            role:  角色，默认 'viewer'
-        """
-        self.name = name
-        self.email = email
-        # 校验 role 是否合法
-        if role not in self.ROLE_LADDER:
-            raise ValueError(f"Invalid role: {role}. Must be one of {self.ROLE_LADDER}")
-        self.role = role
+        # JS 对照：constructor(name, email, role = "viewer") { ... }
+        self.name = name  # JS 对照：`this.name = name`
+        self.email = email  # JS 对照：`this.email = email`
+        if role not in self.ROLE_LADDER:  # JS 对照：`if (!User.ROLE_LADDER.includes(role))`
+            raise ValueError(f"Invalid role: {role}. Must be one of {self.ROLE_LADDER}")  # JS 对照：throw new Error(...)
+        self.role = role  # JS 对照：`this.role = role`
 
     def __str__(self) -> str:
-        """用户友好的字符串表示，适合 print() 输出。"""
-        return f"User(name={self.name}, role={self.role})"
+        # JS 类比：对象的 `toString()`，但 Python 的 `print(obj)` 会优先走 `__str__`
+        return f"User(name={self.name}, role={self.role})"  # JS 对照：`return \`User(name=${this.name}, role=${this.role})\``
 
     def __repr__(self) -> str:
-        """开发者友好的字符串表示，适合调试。
-        repr 与 str 的区别：
-        - __str__：面向用户，可读性优先
-        - __repr__：面向开发者，应能重建对象
-        """
-        return f"User('{self.name}', '{self.email}', '{self.role}')"
+        # JS 类比：更偏调试输出，接近你手工写的 debug 字符串
+        return f"User('{self.name}', '{self.email}', '{self.role}')"  # Python 容器打印对象常用 repr
 
-    @property
+    @property  # JS 对照：`get emailDomain() { ... }`
     def email_domain(self) -> str:
-        """提取邮箱地址的域名部分。
-
-        @property 装饰器：让方法像属性一样被访问
-        用法：user.email_domain（不需要加括号）
-        """
-        return self.email.split("@")[1]
+        # Python 调用方式：u.email_domain（不是 u.email_domain()）
+        return self.email.split("@")[1]  # JS 对照：`this.email.split("@")[1]`
 
     def promote(self) -> None:
-        """将用户角色提升一级。
-
-        viewer -> editor -> admin
-        如果已是 admin，抛出 ValueError。
-        """
+        # JS 对照：const currentIndex = User.ROLE_LADDER.indexOf(this.role)
         current_index = self.ROLE_LADDER.index(self.role)
+        # JS 对照：if (currentIndex >= User.ROLE_LADDER.length - 1) { throw new Error(...) }
         if current_index >= len(self.ROLE_LADDER) - 1:
             raise ValueError(f"User '{self.name}' is already an admin, cannot promote further.")
+        # JS 对照：this.role = User.ROLE_LADDER[currentIndex + 1]
         self.role = self.ROLE_LADDER[current_index + 1]
 
 
 # ---------------------------------------------------------------------------
 # 2. Shape hierarchy - inheritance and polymorphism
 # ---------------------------------------------------------------------------
-class Shape:
-    """所有形状的基类。
-
-    子类必须实现 area() 方法来提供具体的面积计算逻辑。
-    """
+class Shape:  # JS 对照：`class Shape { ... }`
+    """所有形状的基类。"""
 
     def __init__(self, name: str) -> None:
-        self.name = name
+        self.name = name  # JS 对照：`this.name = name`
 
     def area(self) -> float:
-        """计算面积（子类必须重写此方法）。"""
+        # JS 对照：throw new Error("Subclass must implement area()")
         raise NotImplementedError("Subclass must implement area()")
 
     def describe(self) -> str:
-        """返回形状的描述信息，包含名称和面积。"""
+        # `:.2f` 表示保留 2 位小数；JS 对照：`this.area().toFixed(2)`
         return f"{self.name}: area = {self.area():.2f}"
 
 
-class Circle(Shape):
+class Circle(Shape):  # JS 对照：`class Circle extends Shape`
     """圆形，继承自 Shape。"""
 
     def __init__(self, radius: float) -> None:
-        # super() 调用父类的 __init__，设置 name
-        super().__init__("Circle")
-        self.radius = radius
+        super().__init__("Circle")  # JS 对照：`super("Circle")`
+        self.radius = radius  # JS 对照：`this.radius = radius`
 
     def area(self) -> float:
-        """圆面积 = π * r²"""
-        return math.pi * self.radius ** 2
+        return math.pi * self.radius ** 2  # JS 对照：`Math.PI * this.radius ** 2`
 
     def __str__(self) -> str:
-        return f"Circle(radius={self.radius})"
+        return f"Circle(radius={self.radius})"  # JS 对照：`return \`Circle(radius=${this.radius})\``
 
 
-class Rectangle(Shape):
+class Rectangle(Shape):  # JS 对照：`class Rectangle extends Shape`
     """矩形，继承自 Shape。"""
 
     def __init__(self, width: float, height: float) -> None:
-        super().__init__("Rectangle")
-        self.width = width
-        self.height = height
+        super().__init__("Rectangle")  # JS 对照：`super("Rectangle")`
+        self.width = width  # JS 对照：`this.width = width`
+        self.height = height  # JS 对照：`this.height = height`
 
     def area(self) -> float:
-        """矩形面积 = 宽 * 高"""
-        return self.width * self.height
+        return self.width * self.height  # JS 对照：`return this.width * this.height`
 
     def __str__(self) -> str:
-        return f"Rectangle(width={self.width}, height={self.height})"
+        return f"Rectangle(width={self.width}, height={self.height})"  # JS 对照模板字符串
 
 
 # ---------------------------------------------------------------------------
 # 3. Team class - composition pattern (has-a relationship)
 # ---------------------------------------------------------------------------
-class Team:
-    """团队类，演示组合模式（Team 包含多个 User）。
-
-    组合 vs 继承：
-    - 继承（is-a）：Circle 是一个 Shape
-    - 组合（has-a）：Team 有多个 User
-    """
+class Team:  # JS 对照：`class Team { ... }`
+    """团队类，演示组合模式（Team 包含多个 User）。"""
 
     def __init__(self, name: str) -> None:
-        self.name = name
-        self._members: list[User] = []  # 私有属性，用 _ 前缀约定
+        self.name = name  # JS 对照：`this.name = name`
+        self._members: list[User] = []  # JS 对照：`this._members = []`（约定私有，不是语法私有）
 
     def add_member(self, user: User) -> None:
-        """添加成员（邮箱不能重复）。
-
-        Args:
-            user: 要添加的用户
-
-        Raises:
-            ValueError: 如果该邮箱已存在于团队中
-        """
-        # 检查邮箱是否已存在
+        # 集合推导式；JS 对照：`new Set(this._members.map(m => m.email))`
         existing_emails = {m.email for m in self._members}
-        if user.email in existing_emails:
+        if user.email in existing_emails:  # JS 对照：`if (existingEmails.has(user.email))`
             raise ValueError(f"User with email '{user.email}' already in team '{self.name}'.")
-        self._members.append(user)
+        self._members.append(user)  # JS 对照：`this._members.push(user)`
 
     def find_by_role(self, role: str) -> list[User]:
-        """根据角色筛选成员。
-
-        Args:
-            role: 要筛选的角色名
-
-        Returns:
-            符合角色的用户列表
-        """
+        # 列表推导式；JS 对照：`return this._members.filter(m => m.role === role)`
         return [m for m in self._members if m.role == role]
 
     def __len__(self) -> int:
-        """返回团队人数，使得 len(team) 可用。"""
+        # 实现后可以 `len(team)`；JS 里通常会写 `team.members.length` 或 getter
         return len(self._members)
 
     def __str__(self) -> str:
+        # 生成器表达式 + join；JS 对照：`this._members.map(m => m.name).join(", ")`
         member_names = ", ".join(m.name for m in self._members)
         return f"Team({self.name}, members=[{member_names}])"
 
@@ -179,17 +140,17 @@ class Team:
 # ---------------------------------------------------------------------------
 # Standalone test (when running this file directly)
 # ---------------------------------------------------------------------------
-if __name__ == "__main__":
-    print("=== day3_models.py standalone test ===")
+if __name__ == "__main__":  # JS 对照：`if (require.main === module)`
+    print("=== day3_models.py standalone test ===")  # JS 对照：`console.log(...)`
 
-    u = User("Alice", "alice@example.com")
-    print(u)
-    print(f"email_domain: {u.email_domain}")
-    u.promote()
-    print(f"After promote: {u}")
+    u = User("Alice", "alice@example.com")  # JS 对照：`const u = new User(...)`
+    print(u)  # JS 对照：`console.log(u.toString())`（类比）
+    print(f"email_domain: {u.email_domain}")  # JS 对照：`console.log(\`email_domain: ${u.emailDomain}\`)`
+    u.promote()  # JS 对照：`u.promote()`
+    print(f"After promote: {u}")  # JS 对照模板字符串
 
-    c = Circle(5)
-    print(c.describe())
+    c = Circle(5)  # JS 对照：`const c = new Circle(5)`
+    print(c.describe())  # JS 对照：`console.log(c.describe())`
 
-    r = Rectangle(3, 4)
-    print(r.describe())
+    r = Rectangle(3, 4)  # JS 对照：`const r = new Rectangle(3, 4)`
+    print(r.describe())  # JS 对照：`console.log(r.describe())`

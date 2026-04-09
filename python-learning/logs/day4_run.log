@@ -1,0 +1,43 @@
+============================================================
+Exercise 1: Runtime & venv basics
+============================================================
+python_executable: /usr/local/opt/python@3.10/bin/python3.10
+python_version: 3.10.9
+platform: macOS-14.1-x86_64-i386-64bit
+sys_prefix: /usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10
+base_prefix: /usr/local/opt/python@3.10/Frameworks/Python.framework/Versions/3.10
+in_venv: False
+
+Suggested commands:
+- python3 -m venv python-learning/.venv
+- source python-learning/.venv/bin/activate
+- python -m pip install -U pip
+- python -m pip install -r requirements.txt
+- python -m pip freeze > requirements.txt
+
+============================================================
+Exercise 2: requirements parsing
+============================================================
+package=fastapi, operator===, version=0.111.0
+package=uvicorn, operator=>=, version=0.30.0
+package=httpx, operator=~=, version=0.27.0
+package=pydantic, operator=None, version=None
+
+============================================================
+Exercise 3: package imports
+============================================================
+run_app_demo result:
+- app: Day4 Package Demo
+- user: Maple Lee
+- currency: USD
+- subtotal: 297.0
+- final: 267.3
+
+Import path check:
+current_file: day4_exercises.py
+cwd: /Users/maple/Documents/AI-project/AI-Systematicity
+sys.path[0]: /Users/maple/Documents/AI-project/AI-Systematicity/python-learning/day4
+
+============================================================
+All Day 4 exercises completed!
+============================================================
